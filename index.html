@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gumdamGDC</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js//bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<style>
+    .logo img {
+        height: 75px;
+    }
+    
+    .search-box input {
+        border-radius: 5px 0 0 5px;
+    }
+    
+    .search-box button {
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .login-group a:hover {
+        text-decoration: none;
+    }
+    
+    .login-group {
+        background-color: #0066d9;
+        border-radius: 8px;
+        overflow: hidden;
+        display: inline-flex;
+    }
+    
+    .login-group a {
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        position: relative;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    .zoom {
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .zoom img {
+        transition: 1s;
+    }
+    
+    .zoom:hover img {
+        transform: scale(1.1);
+    }
+    
+    .hover-text {
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    
+    .hover-text:hover {
+        color: #e74c3c;
+    }
+    
+    .mau {
+        background-color: #f9f9f9;
+    }
+    
+    .dropdown-submenu {
+        left: 100%;
+        top: 0;
+        position: absolute;
+        display: none;
+    }
+    
+    .dropdown-hover>.dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu>.dropdown:hover>.dropdown-submenu {
+        display: block;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="logo navbar-brand"><img src="Images/logo.webp" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="Menu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gioithieu.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lienhe.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="menu" role="button" href="#">Sản phẩm</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">Mô hình Gundam</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="dropdown-item dropdown-toggle">Phụ kiện</a>
+                                <ul class="dropdown-menu dropdown-submenu">
+                                    <li><a class="dropdown-item" href="sanphammoi1.html">Kiềm 1 lưỡi</a></li>
+                                    <li><a class="dropdown-item" href="sanphambanchay1.html">Kiềm 2 lưỡi</a></li>
+                                    <li><a class="dropdown-item" href="sanphammoi2.html">Bộ dụng cụ DSPIAE</a></li>
+                                    <li><a class="dropdown-item" href="sanphambanchay2.html">Kẹp cá sấu</a></li>
+                                    <li><a class="dropdown-item" href="sanphambanchay3.html">Dũa khối 4 mặt</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex search-box">
+                    <input type="text" class="form-control" placeholder="Từ khoá...">
+                    <button class="btn btn-light"><i class="bi bi-search"></i></button>
+                </form>
+                <div>
+                    <div class="login-group m-1">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#fordangnhap"><i class="bi bi-box-arrow-in-left m-1"></i>Đăng Nhập</a>
+                    </div>
+                    <div class="login-group">
+                        <a href="giohang.html"><i class="bi bi-cart3"></i></a>
+                    </div>
+                    <div class="modal fade" id="fordangnhap" tabindex="-1" aria-labelledby="logindangnhap" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark text-white">
+                                    <h5 class="modal-title" id="logindangnhap">Đăng Nhập</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Email hoặc SĐT" required>
+                                        </div>
+                                        <div class="mb-2">
+                                            <input type="password" class="form-control" placeholder="Mật Khẩu" required>
+                                        </div>
+                                        <div class="mb-3 text-end">
+                                            <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#forquenmatkhau">Bạn quên Mật Khẩu?</a>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fordangki">Đăng Ký</button>
+                                    <button type="submit" class="btn btn-success">Đăng Nhập</button>
+                                </div>
+                                </form>
+                                <div class="text-center mb-3 text-muted fw-bold">Hoặc đăng nhập bằng</div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="#" class="btn btn-primary d-flex align-items-center m-2">
+                                        <i class="bi bi-facebook me-2"></i> Facebook
+                                    </a>
+                                    <a href="#" class="btn btn-danger d-flex align-items-center m-2">
+                                        <i class="bi bi-google me-2"></i> Google
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="fordangki" tabindex="-1" aria-labelledby="logindangki" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark text-white">
+                                    <h5 class="modal-title" id="logindangki">Đăng Ký</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Số điện thoại">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" placeholder="Email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Họ và Tên">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" placeholder="Mật Khẩu">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" placeholder="Xác nhận Mật Khẩu">
+                                        </div>
+                                        <div class="m-3 small text-dark" style="font-size: 15px;">
+                                            <strong>Được gì khi đăng ký thành viên tại Thế giới mô hình?</strong>
+                                            <br> - Tích lũy điểm lên thành viên Vip giảm giá các đơn hàng sau
+                                            <br> - Theo dõi lịch sử đơn hàng nhanh nhất
+                                            <br> - Cập nhật thông tin mới nhất từ Thế giới mô hình
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#fordangnhap">Đăng Nhập</button>
+                                    <button type="submit" class="btn btn-primary">Đăng Ký</button>
+                                </div>
+                                </form>
+                                <div class="text-center mb-3 text-muted fw-bold">Hoặc đăng nhập bằng</div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="#" class="btn btn-primary d-flex align-items-center m-2">
+                                        <i class="bi bi-facebook me-2"></i> Facebook
+                                    </a>
+                                    <a href="#" class="btn btn-danger d-flex align-items-center m-2">
+                                        <i class="bi bi-google me-2"></i> Google
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="forquenmatkhau" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark text-white">
+                                    <h5 class="modal-title fw-bold" id="forgotPasswordModalLabel">Lấy lại Mật Khẩu</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Tài Khoản">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" placeholder="Email">
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">XÁC NHẬN</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-3 zoom">
+                <a href="#"><img src="Images/HG-FRONTSITE-BANNER.png" class="" alt="HG"></a>
+            </div>
+            <div class="col-3 zoom">
+                <a href="#"><img src="Images/RG-FRONTSITE-BANNER.png" class="" alt="RG"></a>
+            </div>
+            <div class="col-3 zoom">
+                <a href="#"><img src="Images/PG-FRONTSITE-BANNER.png" class="" alt="MG"></a>
+            </div>
+            <div class="col-3 zoom">
+                <a href="#"><img src="Images/MG-FRONTSITE-BANNER.png" class="" alt="PG"></a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5><i class="bi bi-star-fill text-warning"></i> HÀNG HOT TRONG THÁNG</h5>
+            <a href="#">Xem tất cả <i class="bi bi-chevron-right"></i></a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+            <!-- Sản phẩm 1 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham1.html"><img src="Images/RG-IRON-SICKLE-AZGUNDAM-1.jpg" href="" class="card-img-top" alt="BE Iron Sickle"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-7%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">MODEL KIT HÃNG KHÁC</small>
+                        <a href="chitietsanpham1.html">
+                            <p class="card-title fw-bold hover-text">Mô hình lắp ráp 1/144 BE Iron Sickle – Hãng SNAA</p>
+                        </a>
+                        <p><del>279.000₫</del> <span class="text-danger fw-bold">260.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham2.html"><img src="Images/SNAA-YR-04-FIRE-LORD-AZGUNDAM-8.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-5%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">MODEL KIT HÃNG KHÁC</small>
+                        <a href="chitietsanpham2.html">
+                            <p class="card-title fw-bold hover-text">Mô hình lắp ráp 1/100 YR-04 Fire Lord – Hãng SNAA</p>
+                        </a>
+                        <p><del>899.000₫</del> <span class="text-danger fw-bold">850.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham3.html"><img src="Images/THUNDERBOLT-V2-AZGUNDAM.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-5%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">MODEL KIT HÃNG KHÁC</small>
+                        <a href="chitietsanpham3.html">
+                            <p class="card-title fw-bold hover-text">Mô hình lắp ráp 1/100 thunderbolt Ver 2.0 - In Era+</p>
+                        </a>
+                        <p><del>900.000₫</del> <span class="text-danger fw-bold">850.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sản phẩm 4 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham4.html"><img src="Images/MG-GUNDAM-VIDAR-AZGUNDAM-2025-1.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-5%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">BANDAI</small>
+                        <a href="chitietsanpham4.html">
+                            <p class="card-title fw-bold hover-text">MG Gumdam VIdar - Mô hình lắp ráp Gumdam Bandai</p>
+                        </a>
+                        <p><del>1.599.000₫</del> <span class="text-danger fw-bold">1.500.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sản phẩm 5 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham5.html"><img src="Images/GIANT-AXE-LANCELOT-SNAA-AZGUNDAM.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-5%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">MODEL KIT HÃNG KHÁC</small>
+                        <a href="chitietsanpham5.html">
+                            <p class="card-title fw-bold hover-text">Mô hình lắp ráp 1/144 BE Giant Axe Lancelot - Hãng SNAA</p>
+                        </a>
+                        <p><del>300.000₫</del> <span class="text-danger fw-bold">299.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5><i class="bi bi-star-fill text-warning"></i> MODEL KIT HÃNG KHÁC</h5>
+            <a href="#">Xem tất cả <i class="bi bi-chevron-right"></i></a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+            <!-- Sản phẩm 1 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham6.html"><img src="Images/moti1.jpg" href="" class="card-img-top" alt="BE Iron Sickle"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-4%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">MODEL KIT HÃNG KHÁC</small>
+                        <a href="chitietsanpham6.html">
+                            <p class="card-title fw-bold hover-text">Mô hình ráp sẵn 1/72 MCT-J02 Takeda Shingen Black Ver</p>
+                        </a>
+                        <p><del>5.699.000₫</del> <span class="text-danger fw-bold">5.450.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham7.html"><img src="Images/moti2.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-6%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">MODEL KIT HÃNG KHÁC</small>
+                        <a href="chitietsanpham7.html">
+                            <p class="card-title fw-bold hover-text">Mô hình ráp sẵn 1/72 MCT-J02 Takeda Shingen</p>
+                        </a>
+                        <p><del>4.499.000₫</del> <span class="text-danger fw-bold">4.420.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham8.html"><img src="Images/moti3.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-5%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">MODEL KIT HÃNG KHÁC</small>
+                        <a href="chitietsanpham8.html">
+                            <p class="card-title fw-bold hover-text">Mô hình lắp ráp 1/100 Phoenix – Vientiane Toys</p>
+                        </a>
+                        <p><del>579.000₫</del> <span class="text-danger fw-bold">550.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sản phẩm 4 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham9.html"><img src="Images/moti4.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-3%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">RG</small>
+                        <a href="chitietsanpham9.html">
+                            <p class="card-title fw-bold hover-text">RG 36 RX-93-V2 Hi-V Gundam – Mô hình lắp ráp Gundam Bandai</p>
+                        </a>
+                        <p><del>1.600.000₫</del> <span class="text-danger fw-bold">1.550.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sản phẩm 5 -->
+            <div class="col-6">
+                <div class="card h-100 text-center">
+                    <div class="position-relative zoom">
+                        <a href="chitietsanpham10.html"><img src="Images/moti5.jpg" class="card-img-top" alt="Fire Lord"></a>
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-6%</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">BANDAI</small>
+                        <a href="chitietsanpham10.html">
+                            <p class="card-title fw-bold hover-text">SDW Heroes Alternative Justice Infinite Dragon</p>
+                        </a>
+                        <p><del>299.000₫</del> <span class="text-danger fw-bold">280.000₫</span></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container-fluid my-4 mau bg-light">
+        <div class="row">
+            <!-- Sản phẩm mới -->
+            <div class="col-md-4">
+                <h5><strong>SẢN PHẨM MỚI</strong></h5>
+                <hr>
+                <div class="mb-3 d-flex">
+                    <a href="sanphammoi1.html"><img src="Images/Sanphammoi1.jpg" class="me-2" width="60"></a>
+                    <div>
+                        <a href="sanphammoi1.html">
+                            <p class="mb-1 hover-text">Kềm 1 lưỡi cao cấp Version 3.0 - DSPIAE</p>
+                        </a>
+                        <small><del>699.000₫</del> <span class="text-danger">650.000₫</span></small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex">
+                    <a href="sanphammoi2.html"><img src="Images/sanphammoi2.jpg" class="me-2" width="60"></a>
+                    <div>
+                        <a href="sanphammoi2.html">
+                            <p class="mb-1 hover-text">Combo Departure Tool Set – Bộ dụng cụ DSPIAE</p>
+                        </a>
+                        <small><del>799.000₫</del> <span class="text-danger">750.000₫</span></small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex">
+                    <a href="sanphammoi3.html"><img src="Images/Sanphammoi3.jpg" class="me-2" width="60"></a>
+                    <div>
+                        <a href="sanphammoi3.html">
+                            <p class="mb-1 hover-text">Mô hình lắp ráp Taira Kiyomori Snow Ghost</p>
+                        </a>
+                        <small><del>899.000₫</del> <span class="text-danger">850.000₫</span></small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex">
+                    <a href="sanphammoi4.html"><img src="Images/Sanphammoi4.jpg" class="me-2" width="60"></a>
+                    <div>
+                        <a href="sanphammoi4.html">
+                            <p class="mb-1 hover-text">HG Psycho Gundam Mk-Ⅱ</p>
+                        </a>
+                        <small><del>2.599.000₫</del> <span class="text-danger">2.400.000₫</span></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm bán chạy -->
+            <div class="col-md-4">
+                <h5><strong>SẢN PHẨM BÁN CHẠY</strong></h5>
+                <hr>
+                <div class="mb-3 d-flex">
+                    <a href="sanphambanchay1.html"><img src="Images/Sanphambanchay1.jpg" class="me-2" width="60"></a>
+                    <div>
+                        <a href="sanphambanchay1.html">
+                            <p class="mb-1 hover-text">Kềm cắt mô hình 2 lưỡi</p>
+                        </a>
+                        <small><del>49.000₫</del> <span class="text-danger">30.000₫</span></small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex">
+                    <a href="sanphambanchay2.html"><img src="Images/Sanphambanchay2.jpg" class="me-2" width="60"></a>
+                    <div>
+                        <a href="sanphambanchay2.html">
+                            <p class="mb-1 hover-text">Kẹp Cá Sấu Bộ 10 cây – Kẹp Part sơn mô hình</p>
+                        </a>
+                        <small><del>80.000₫</del> <span class="text-danger">30.000₫</span></small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex">
+                    <a href="sanphambanchay3.html"><img src="Images/Sanphambanchay3.jpg" class="me-2" width="60"></a>
+                    <div>
+                        <a href="sanphambanchay3.html">
+                            <p class="mb-1 hover-text">Dũa Khối 4 Mặt O-P-I</p>
+                        </a>
+                        <small><del>72.000₫</del> <span class="text-danger">20.000₫</span></small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex">
+                    <a href="sanphambanchay4.html"><img src="Images/Sanphambanchay4.jpg" class="me-2" width="60" style="height: 60px;"></a>
+                    <div>
+                        <a href="sanphambanchay4.html">
+                            <p class="mb-1 hover-text">RG 11 Destiny Gundam</p>
+                        </a>
+                        <div class="mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <small><del>699.000₫</del> <span class="text-danger">590.000₫</span></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thông tin dịch vụ -->
+            <div class="col-md-4">
+                <h5><strong>YÊN TÂM MUA HÀNG TẠI GundamGDC</strong></h5>
+                <hr>
+                <p><i class="bi bi-box-seam me-2 text-warning"></i> Gundam Shop Chính hãng BANDAI</p>
+                <p><i class="bi bi-truck me-2 text-warning"></i> Giao hàng Nhanh Toàn Quốc</p>
+                <p><i class="bi bi-tags me-2 text-warning"></i> Luôn có Giá tốt nhất</p>
+                <p><i class="bi bi-shield-check me-2 text-warning"></i> Uy tín, Nhiệt tình, Thân thiện</p>
+                <p><i class="bi bi-cart me-2 text-warning"></i> Đặt hàng Online 24/7</p>
+                <p>| <em>GundamGDC</em></p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Cột 1: Thông tin liên hệ -->
+            <div class="col-md-3">
+                <h6><strong>THÔNG TIN LIÊN HỆ</strong></h6>
+                <hr class="mt-1 mb-2" style="width: 50px;">
+                <p><strong>Địa chỉ:</strong> Tổ 43, Số nhà 38, Ấp Mỹ Phụng, Xã Mỹ Khánh, Huyện Phong Điền, Thành phố Cần thơ</p>
+                <p><strong>Điện thoại:</strong> 0772842553</p>
+                <p><strong>Email:</strong> dangtvt10c10@gmail.com</p>
+                <p><strong>Giờ làm việc:</strong> Từ Thứ 2 đến Thứ 7 (09h-20h),<br>Chủ Nhật hàng tuần - Nghỉ</p>
+            </div>
+
+            <!-- Cột 2: GundamGDC.COM -->
+            <div class="col-md-3">
+                <h6><strong>GundamGDC.COM</strong></h6>
+                <hr class="mt-1 mb-2" style="width: 50px;">
+                <ul class="list-unstyled">
+                    <li><a href="#">Giới thiệu GundamGDC</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                    <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="#">Giao hàng - Đổi hàng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Phương thức thanh toán</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 3: Tin tức -->
+            <div class="col-md-3">
+                <h6><strong>TIN TỨC</strong></h6>
+                <hr class="mt-1 mb-2" style="width: 50px;">
+                <ul class="list-unstyled">
+                    <li><a href="#">Blog Gundam (30)</a></li>
+                    <li><a href="#">Gundam Review (1)</a></li>
+                    <li><a href="#">Khuyến mãi (3)</a></li>
+                    <li><a href="#">Thông tin (10)</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 4: Liên kết -->
+            <div class="col-md-3">
+                <h6><strong>LIÊN KẾT</strong></h6>
+                <hr class="mt-1 mb-2" style="width: 50px;">
+                <img src="Images/lienket.png" alt="DMCA Protected" class="img-fluid mt-2" style="max-width: 150px;">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light py-3 mt-4">
+        <div class="row align-items-center">
+            <!-- Cột trái: Thông tin pháp lý -->
+            <div class="col-md-8 text-secondary">
+                <p class="mb-1">Mã số doanh nghiệp: 41N8042949 do Sở Kế hoạch và Đầu tư TP.HCM cấp ngày 28-03-2019</p>
+                <p class="mb-1">Trụ sở chính: Số 53 Lưu Nhân Chú, Phường 05, Quận Tân Bình, Tp. Hồ Chí Minh</p>
+                <p class="mb-0">Copyright 2018 © <strong class="text-dark">GundamGDC</strong></p>
+            </div>
+
+            <!-- Cột phải: Logo thông báo -->
+            <div class="col-md-2 text-md-end text-center">
+                <img src="Images/bocongthuong.webp" alt="Đã thông báo Bộ Công Thương" class="img-fluid" style="max-height: 100px;">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
